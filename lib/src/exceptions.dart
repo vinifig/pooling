@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 @immutable
-abstract class PoolingException implements Exception {
+class PoolingException implements Exception {
   const PoolingException(
     this.runCount,
     this.originalException,
@@ -16,12 +16,4 @@ abstract class PoolingException implements Exception {
   String toString() {
     return "PoolingException(runCount: $runCount, $originalException, $originalStackTrace)";
   }
-}
-
-class ExecutionException extends PoolingException {
-  const ExecutionException(
-    super.runCount,
-    super.originalException,
-    super.originalStackTrace,
-  );
 }

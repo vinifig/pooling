@@ -18,4 +18,4 @@ typedef FetchCallback<T> = Future<T> Function();
 /// `(exception) {`
 /// `  ...`
 /// `}`
-typedef ExceptionCallback = void Function(ExecutionException);
+typedef ExceptionCallback = void Function(PoolingException);

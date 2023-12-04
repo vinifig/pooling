@@ -5,3 +5,4 @@ include: package:flutter_lints/flutter.yaml
 linter:
   rules:
     depend_on_referenced_packages: true
+    prefer_conditional_assignment: false

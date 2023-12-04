@@ -34,9 +34,10 @@ class Pooler<T> extends ValueNotifier<T?> {
     do {
       try {
         value = await fetch();
-        await Future.delayed(interval);
       } catch (e, stacktrace) {
         _handleException(e, stacktrace);
+      } finally {
+        await Future.delayed(interval);
       }
     } while (_running);
   }
@@ -61,14 +62,12 @@ class Pooler<T> extends ValueNotifier<T?> {
   }
 
   void _handleException(Object originalException, StackTrace? stacktrace) {
-    final exception = ExecutionException(
+    final exception = PoolingException(
       runCount,
       originalException,
       stacktrace,
     );
-    if (onException == null) {
-      throw exception;
-    }
+
     onException?.call(exception);
   }
 }
