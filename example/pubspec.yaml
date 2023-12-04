@@ -1,4 +1,4 @@
-name: pooling_example
+name: example
 description: "pooling example"
 publish_to: 'none' 
 version: 1.0.0+1
